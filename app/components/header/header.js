@@ -1,32 +1,34 @@
-import styles from './header.module.css';
+import styles from './header.module.scss';
 import Image from 'next/image';
 
 export default function Header() {
 	const headerLinks = [
-		{text: 'Uvod', url: '/uvod'},
-		{text: 'Sluzby', url: '/sluzby'},
+		{text: 'Úvod', url: '/uvod'},
+		{text: 'Služby', url: '/sluzby'},
 		{text: 'Reference', url: '/reference'},
 		{text: 'Kontakty', url: '/kontakty'},
-		{text: 'Kariera', url: '/kariera'},
+		{text: 'Kariéra', url: '/kariera'},
 	]
 
 	return (
 		<header className={styles.header}>
-			<div className='d-flex'>
-				<div><Image
+			<div className='d-flex space-between'>
+				<div className={styles.logo}><Image
 					src="/abuco-logo.svg"
 					alt="Abuco Logo"
-					className={styles.vercelLogo}
 					width={186}
 					height={39}
 					priority
 				/></div>
-				<nav>
+				<nav className='d-flex align-center'>
 					{headerLinks.map((link) => (
-						<div key={link.text}><a href={link.url}>{link.text}</a></div>
+						<div className={styles.item} key={link.text}>
+							<a className={styles.link} href={link.url}>{link.text}</a>
+						</div>
 					))}
 				</nav>
-				<div>
+				<div className={styles.support}>
+					<div className='uppercase bold'>Technická podpora:</div>
 					<div>+420 212 247 585</div>
 					<div>podpora@abuco.cz</div>
 				</div>

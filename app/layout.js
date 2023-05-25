@@ -1,4 +1,4 @@
-import './globals.css'
+import './globals.scss'
 import { Ubuntu } from 'next/font/google'
 import Header from './components/header/header'
 
